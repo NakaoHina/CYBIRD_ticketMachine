@@ -21,6 +21,33 @@ export default new Vuex.Store({
     inputJpy100: 0,
     inputJpy50: 0,
     inputJpy10: 0, 
+    // ChipJpy
+    chipJpy10000: 0,
+    chipJpy5000: 0,
+    chipJpy1000: 0,
+    chipJpy500: 0,
+    chipJpy100: 0,
+    chipJpy50: 0,
+    chipJpy10: 0, 
+
+    selectedTicket: 130,
+    countSelectedTicket: 1,
+  },
+  getters: {
+    inputJPYTotal (state) {
+      return (
+        state.inputJpy10000*10000 
+        + state.inputJpy5000*5000 
+        + state.inputJpy1000*1000 
+        + state.inputJpy500*500
+        + state.inputJpy100*100
+        + state.inputJpy50*50 
+        + state.inputJpy10*10
+      )
+    },
+    ticketTotalJPY (state) {
+      return state.selectedTicket*state.countSelectedTicket
+    }
   },
   mutations: {
     // inputJpy10,000
@@ -108,7 +135,70 @@ export default new Vuex.Store({
       // Jpy10
       state.jpy10 += state.inputJpy10
       state.inputJpy10 = 0
+    },
+    selectedTicket(state, value){
+      state.selectedTicket = value
+    },
+    countSelectedTicket(state, value){
+      state.countSelectedTicket = value
+    },
 
+    giveChip(state){
+      var chip = (
+        state.inputJpy10000*10000 
+        + state.inputJpy5000*5000 
+        + state.inputJpy1000*1000 
+        + state.inputJpy500*500
+        + state.inputJpy100*100
+        + state.inputJpy50*50 
+        + state.inputJpy10*10
+      ) - state.selectedTicket*state.countSelectedTicket
+      state.chipJpy10000 = parseInt(chip / 10000, 10)
+      chip %= 10000
+      state.chipJpy5000 = parseInt(chip / 5000, 10)
+      chip %= 5000
+      state.chipJpy1000 = parseInt(chip / 1000, 10)
+      chip %= 1000
+      state.chipJpy500 = parseInt(chip / 500, 10)
+      chip %= 500
+      state.chipJpy100 = parseInt(chip / 100, 10)
+      chip %= 100
+      state.chipJpy50 = parseInt(chip / 50, 10)
+      chip %= 50
+      state.chipJpy10 = parseInt(chip / 10, 10)
+      chip %= 10
+    },
+    getChip (state) {
+      state.jpy10000 += state.chipJpy10000
+      state.chipJpy10000 = 0
+      state.inputJpy10000 = 0
+  
+      state.jpy5000 += state.chipJpy5000
+      state.chipJpy5000 = 0
+      state.inputJpy5000 = 0
+  
+      state.jpy1000 += state.chipJpy1000
+      state.chipJpy1000 = 0
+      state.inputJpy1000 = 0
+  
+      state.jpy500 += state.chipJpy500
+      state.chipJpy500 = 0
+      state.inputJpy500 = 0
+  
+      state.jpy100 += state.chipJpy100
+      state.chipJpy100 = 0
+      state.inputJpy100 = 0
+  
+      state.jpy50 += state.chipJpy50
+      state.chipJpy50 = 0
+      state.inputJpy50 = 0
+  
+      state.jpy10 += state.chipJpy10
+      state.chipJpy10 = 0
+      state.inputJpy10 = 0
+
+      state.selectedTicket = 130
+      state.countSelectedTicket = 1
     }
   },
 })
