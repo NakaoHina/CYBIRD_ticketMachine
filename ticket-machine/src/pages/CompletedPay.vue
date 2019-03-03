@@ -88,6 +88,7 @@ export default {
   },
   methods: {
     onClickComplete () {
+      this.$store.commit('history')
       this.$store.commit('getChip')
       this.$router.push({
         path: '/',

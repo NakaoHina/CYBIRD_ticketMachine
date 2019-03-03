@@ -14,7 +14,13 @@
             {{jpy10}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy10? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy10 || $route.path !== '/wallet-pay'" @click="onClickInputJpy10">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy10? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy10 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy10">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
@@ -28,7 +34,13 @@
             {{jpy50}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy50? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy50 || $route.path !== '/wallet-pay'" @click="onClickInputJpy50">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy50? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy50 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy50">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
@@ -42,7 +54,13 @@
             {{jpy100}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy100? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy100 || $route.path !== '/wallet-pay'" @click="onClickInputJpy100">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy100? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy100 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy100">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
@@ -56,7 +74,13 @@
             {{jpy500}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy500? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy500 || $route.path !== '/wallet-pay'" @click="onClickInputJpy500">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy500? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy500 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy500">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
@@ -70,7 +94,13 @@
             {{jpy1000}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy1000? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy1000 || $route.path !== '/wallet-pay'" @click="onClickInputJpy1000">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy1000? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy1000 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy1000">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
@@ -84,7 +114,13 @@
             {{jpy5000}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy5000? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy5000 || $route.path !== '/wallet-pay'" @click="onClickInputJpy5000">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy5000? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy5000 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy5000">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
@@ -98,14 +134,25 @@
             {{jpy10000}}枚
           </b-col>
           <b-col>
-            <b-button :variant="disabledInputJpy10000? 'outline-danger': 'outline-success'" size="sm" :disabled="disabledInputJpy10000 || $route.path !== '/wallet-pay'" @click="onClickInputJpy10000">投入</b-button>
+            <b-button 
+              :variant="disabledInputJpy10000? 'outline-danger': 'outline-success'" 
+              size="sm" 
+              :disabled="disabledInputJpy10000 || $route.path !== '/wallet-pay'" 
+              @click="onClickInputJpy10000">
+              投入
+            </b-button>
           </b-col>
         </b-row>
       </b-list-group-item>
     </b-list-group>
 
     <b-card-body class="text-center">
-      <b-button variant="outline-danger" @click="onClickCancel" :disabled="$route.path !== '/wallet-pay'">投入取消</b-button>
+      <b-button 
+        variant="outline-danger" 
+        @click="onClickCancel" 
+        :disabled="$route.path !== '/wallet-pay'">
+        投入取消
+      </b-button>
     </b-card-body>
   </b-card>
 </template>
@@ -113,6 +160,7 @@
 <script>
 export default {
   computed: {
+    // input JPY
     jpy10000() {
       return this.$store.state.jpy10000
     },
@@ -134,6 +182,7 @@ export default {
     jpy10() {
       return this.$store.state.jpy10
     },
+    // can't inpt JPY
     disabledInputJpy10000() {
       return this.jpy10000 === 0
     },

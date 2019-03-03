@@ -30,8 +30,14 @@ export default new Vuex.Store({
     chipJpy50: 0,
     chipJpy10: 0, 
 
+    //eMoney
+    eMoney: 1000,
+    ePay: true,
+
     selectedTicket: 130,
     countSelectedTicket: 1,
+
+    histories: [/* { eMoney: bool, price: number } */],
   },
   getters: {
     inputJPYTotal (state) {
@@ -47,6 +53,11 @@ export default new Vuex.Store({
     },
     ticketTotalJPY (state) {
       return state.selectedTicket*state.countSelectedTicket
+    },
+
+    eTicketTotal (state) {
+      const changeJpy = state.selectedTicket - 6
+      return changeJpy * state.countSelectedTicket
     }
   },
   mutations: {
@@ -113,6 +124,7 @@ export default new Vuex.Store({
       state.jpy10 -= 1
     },
     
+    // input JPY reset
     inputCancel(state){
       // Jpy10,000
       state.jpy10000 += state.inputJpy10000
@@ -143,6 +155,7 @@ export default new Vuex.Store({
       state.countSelectedTicket = value
     },
 
+    // お釣り計算
     giveChip(state){
       var chip = (
         state.inputJpy10000*10000 
@@ -168,6 +181,7 @@ export default new Vuex.Store({
       state.chipJpy10 = parseInt(chip / 10, 10)
       chip %= 10
     },
+
     getChip (state) {
       state.jpy10000 += state.chipJpy10000
       state.chipJpy10000 = 0
@@ -199,6 +213,32 @@ export default new Vuex.Store({
 
       state.selectedTicket = 130
       state.countSelectedTicket = 1
+    },
+
+    ePay(state) {
+      const price = (state.selectedTicket - 6) * state.countSelectedTicket
+      if (state.eMoney - price < 0) {
+        state.ePay = false
+        return
+      }
+      // 支払い計算
+      state.eMoney -= price
+      state.ePay = true
+    },
+
+    history(state) {
+      const price = state.selectedTicket * state.countSelectedTicket
+      state.histories.unshift({
+        eMoney: false,
+        price: price,
+      })
+    },
+    eHistory(state) {
+      const price = (state.selectedTicket - 6) * state.countSelectedTicket
+      state.histories.unshift({
+        eMoney: true,
+        price: price,
+      })
     }
   },
 })

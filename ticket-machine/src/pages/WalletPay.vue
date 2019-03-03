@@ -59,7 +59,7 @@ export default {
     onClickButton () {
       this.$store.commit('giveChip')
       this.$router.push({
-        path: '/compleated-pay',
+        path: '/completed-pay',
       })
     },
     onClickCancel () {

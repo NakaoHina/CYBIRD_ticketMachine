@@ -20,6 +20,7 @@
       </b-col>
       <b-col>
         <e-wallet></e-wallet>
+        <history class="mt-3"></history>
       </b-col>
     </b-row>
   </b-container>
@@ -28,12 +29,14 @@
 <script>
 import Wallet from '@/components/Wallet.vue'
 import EWallet from '@/components/EWallet.vue'
+import History from '@/components/History.vue'
 
 export default {
   name: 'app',
   components: {
     Wallet,
     EWallet,
+    History,
   }
 }
 </script>
