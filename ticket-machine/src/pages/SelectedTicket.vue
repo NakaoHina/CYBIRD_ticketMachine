@@ -27,10 +27,6 @@
     </b-row>
 
     <b-row class="align-items-end h-25">
-      <b-col>
-        <b-button @click="onClickBack" variant="outline-danger">取消</b-button>
-      </b-col>
-      <b-col></b-col>
       <b-col class="mx-auto text-right">
         <router-link 
           :class="{
@@ -75,13 +71,6 @@ export default {
       }
     }
   },
-  methods: {
-    onClickBack () {
-      this.$store.commit('inputCancel')
-      this.$store.commit('getChip')
-      this.$router.back()
-    }
-  }
 }
 </script>
 

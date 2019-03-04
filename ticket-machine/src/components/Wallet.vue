@@ -1,5 +1,6 @@
 <template>
-  <b-card no-body>
+  <b-card no-body 
+    :border-variant="$route.path === '/wallet-pay'? 'success' : ''">
     <b-card-body>
       <b-card-title>財布</b-card-title>
     </b-card-body>
