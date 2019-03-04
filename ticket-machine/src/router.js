@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// import Index from './pages/Index.vue'
 import SelectedTicket from './pages/SelectedTicket.vue'
 import WhichPay from './pages/WhichPay.vue'
 import WalletPay from './pages/WalletPay.vue'
@@ -13,8 +12,7 @@ Vue.use(VueRouter)
 
 export default new VueRouter ({
     routes: [
-      // { path: '/', component: Index },
-      { path: '/', component: SelectedTicket},
+      {path: '/', component: SelectedTicket},
       {path: '/which-pay', component: WhichPay},
       {path: '/wallet-pay', component: WalletPay},
       {path: '/e-wallet-pay', component: EWalletPay},

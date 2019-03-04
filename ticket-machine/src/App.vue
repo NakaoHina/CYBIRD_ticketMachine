@@ -8,7 +8,7 @@
     </b-row>
     <b-row class="mt-3">
       <b-col>
-        <b-card style="height: 300px;">
+        <b-card border-variant="success" style="height: 300px;">
           <router-view></router-view>
         </b-card>
       </b-col>
